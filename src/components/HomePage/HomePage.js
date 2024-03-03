@@ -22,7 +22,7 @@ const HomePage = () => {
               </p>
               <a
                 className="inline-block px-12 py-5 text-lg text-white font-bold bg-blue-500 hover:bg-blue-600 rounded-full transition duration-200"
-                href="/"
+                href="/posts"
               >
                 Let's Explore
               </a>
