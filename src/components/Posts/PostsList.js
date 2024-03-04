@@ -162,7 +162,8 @@ export default function PostsList() {
                         </div>
                       </div>
                       <div className="w-full lg:w-3/4 px-3">
-                        <Link className="hover:underline">
+                        <Link to={`/posts/${post?._id}`}
+                          className="hover:underline">
                           <h3 className="mb-1 text-2xl text-green-400 font-bold font-heading">
                             {/* {capitalizeWord(post?.title)} */}
                             {post?.title}
@@ -181,6 +182,7 @@ export default function PostsList() {
                           <div className="flex-shrink-0">
                             <Link>
                               <img
+                                to={`/profile/${post?.user?._id}`}
                                 className="h-10 w-10 rounded-full"
                                 src={post?.user?.profilePhoto}
                                 alt=""
@@ -189,7 +191,8 @@ export default function PostsList() {
                           </div>
                           <div className="ml-3">
                             <p className="text-sm font-medium text-gray-900">
-                              <Link className="text-yellow-400 hover:underline ">
+                              <Link to={`/profile/${post?.user?._id}`}
+                                className="text-yellow-400 hover:underline ">
                                 {post?.user?.firstName} {post?.user?.lastName}
                               </Link>
                             </p>
