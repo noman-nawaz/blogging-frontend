@@ -205,6 +205,12 @@ const postSlice = createSlice({
       state.serverErr = undefined;
     });
 
+    builder.addCase(createpostAction.rejected, (state, action) => {
+      state.loading = false;
+      state.appErr = action?.payload?.message;
+      state.serverErr = action?.error?.message;
+    });
+
     //Update post
     builder.addCase(updatePostAction.pending, (state, action) => {
       state.loading = true;

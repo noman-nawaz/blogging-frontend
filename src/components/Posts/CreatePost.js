@@ -77,7 +77,7 @@ export default function CreatePost() {
 
           {appErr || serverErr ? (
             <p className="mt-2 text-center text-lg text-red-600">
-              {serverErr} {appErr}
+               {appErr}
             </p>
           ) : null}
         </div>
