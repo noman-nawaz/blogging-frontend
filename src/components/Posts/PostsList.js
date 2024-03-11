@@ -111,7 +111,7 @@ export default function PostsList() {
                       className="flex flex-wrap bg-gray-900 -mx-3  lg:mb-6"
                     >
                       <div className="mb-10  w-full lg:w-1/4">
-                        <Link>
+                        <Link> to={`/posts/${post?._id}`}
                           {/* Post image */}
                           <img
                             className="w-full h-full object-cover rounded"
@@ -180,9 +180,9 @@ export default function PostsList() {
                         {/* User Avatar */}
                         <div className="mt-6 flex items-center">
                           <div className="flex-shrink-0">
-                            <Link>
+                            <Link> to={`/profile/${post?.user?._id}`}
                               <img
-                                to={`/profile/${post?.user?._id}`}
+                                
                                 className="h-10 w-10 rounded-full"
                                 src={post?.user?.profilePhoto}
                                 alt=""

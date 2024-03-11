@@ -56,7 +56,7 @@ const UsersListItem = user => {
           <div className="w-full flex lg:w-4/12 px-4  mb-6 lg:mb-0">
             <p className="inline-block py-1 px-2 mr-2 mb-1 lg:mb-0 text-xs border-2 rounded">
               <span className="text-base mr-2  boder-2 text-bold text-yellow-500">
-                {user.user?.posts?.length} - Posts
+                {user.user?.postCount} - Posts
               </span>
             </p>
             <Link
