@@ -22,7 +22,7 @@ export default function Profile(props) {
   //History
   const history = useHistory();
 
-  //User data from store
+  //User data from store.
   const users = useSelector(state => state.users);
   const {
     profile,
