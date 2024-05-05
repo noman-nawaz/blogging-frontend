@@ -6,6 +6,8 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { createpostAction } from "../../redux/slices/posts/postSlices";
 import CategoryDropDown from "../Categories/CategoryDropDown";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // Import Quill styles
 
 //Form schema
 const formSchema = Yup.object({
@@ -63,7 +65,7 @@ export default function CreatePost() {
   return (
     <>
       <div className="min-h-screen bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="sm:mx-auto sm:w-full sm:max-w-3xl">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-300">
             Create Post
           </h2>
@@ -81,7 +83,7 @@ export default function CreatePost() {
             </p>
           ) : null}
         </div>
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-3xl">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form onSubmit={formik.handleSubmit} className="space-y-6">
               <div>
@@ -131,15 +133,31 @@ export default function CreatePost() {
                   Description
                 </label>
                 {/* Description */}
-                <textarea
+                <ReactQuill
                   value={formik.values.description}
-                  onChange={formik.handleChange("description")}
-                  onBlur={formik.handleBlur("description")}
-                  rows="5"
-                  cols="10"
-                  className="rounded-lg appearance-none block w-full py-3 px-3 text-base text-center leading-tight text-gray-600 bg-transparent focus:bg-transparent  border border-gray-200 focus:border-gray-500  focus:outline-none"
-                  type="text"
-                ></textarea>
+                  onChange={(value) => formik.setFieldValue('description', value)}
+                  modules={{
+                    toolbar: [
+                      [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+                      [{ size: [] }],
+                      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+                      ['link', 'image'],
+                      ['clean']
+                    ],
+                  }}
+                  formats={[
+                    'header', 'font', 'size',
+                    'bold', 'italic', 'underline', 'strike', 'blockquote',
+                    'list', 'bullet', 'indent',
+                    'link', 'image',
+                    'color', 'background', 'script', 'code-block'
+                  ]}
+                  placeholder="Write something amazing..."
+                />
+                <div className="text-red-500">
+                  {formik?.touched?.description && formik.errors?.description}
+                </div>
                 {/* Image component */}
                 <label
                   htmlFor="password"
@@ -173,9 +191,7 @@ export default function CreatePost() {
                   </Dropzone>
                 </Container>
                 {/* Err msg */}
-                <div className="text-red-500">
-                  {formik?.touched?.description && formik.errors?.description}
-                </div>
+                
               </div>
               <div>
                 {/* Submit btn */}
