@@ -169,7 +169,7 @@ export default function PostsList() {
                             {post?.title}
                           </h3>
                         </Link>
-                        <p className="text-gray-300">{post?.description}</p>
+                        
                         {/* Read more */}
                         <Link
                           to={`/posts/${post?._id}`}

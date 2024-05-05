@@ -298,9 +298,7 @@ export default function Profile(props) {
                                     {post?.title}
                                   </h3>
                                 </Link>
-                                <p className="text-gray-600 truncate">
-                                  {post?.description}
-                                </p>
+                                
 
                                 <Link
                                   className="text-indigo-500 hover:underline"

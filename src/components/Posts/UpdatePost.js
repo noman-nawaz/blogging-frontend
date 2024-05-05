@@ -8,6 +8,8 @@ import {
   fetchPostDetailsAction,
   updatePostAction,
 } from "../../redux/slices/posts/postSlices";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // Import Quill styles
 
 //Validation
 const formSchema = Yup.object({
@@ -61,7 +63,7 @@ export default function UpdatePost(props) {
   return (
     <>
       <div className="min-h-screen bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="sm:mx-auto sm:w-full sm:max-w-4xl">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-300">
             Are you sure you want to edit {""}
             <span className="text-green-300">{postDetails?.title}</span>
@@ -73,7 +75,7 @@ export default function UpdatePost(props) {
           ) : null}
         </div>
 
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-4xl">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form onSubmit={formik.handleSubmit} className="space-y-6">
               <div>
@@ -114,15 +116,27 @@ export default function UpdatePost(props) {
                 >
                   Description
                 </label>
-                <textarea
-                  rows="5"
-                  cols="10"
-                  onBlur={formik.handleBlur("description")}
+                <ReactQuill
                   value={formik.values.description}
-                  onChange={formik.handleChange("description")}
-                  className="rounded-lg appearance-none block w-full py-3 px-3 text-base text-center leading-tight text-gray-600 bg-transparent focus:bg-transparent  border border-gray-200 focus:border-gray-500  focus:outline-none"
-                  type="text"
-                ></textarea>
+                  onChange={(value) => formik.setFieldValue('description', value)}
+                  modules={{
+                    toolbar: [
+                      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+                      [{size: []}],
+                      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+                      ['link', 'image'],
+                      ['clean']
+                    ],
+                  }}
+                  formats={[
+                    'header', 'font', 'size',
+                    'bold', 'italic', 'underline', 'strike', 'blockquote',
+                    'list', 'bullet', 'indent',
+                    'link', 'image'
+                  ]}
+                  placeholder="Write something amazing..."
+                />
                 <div className="text-red-500">
                   {formik.touched.description && formik.errors.description}
                 </div>

@@ -88,7 +88,14 @@ const PostDetails = ({
               {/* Post description */}
               <div class="max-w-xl mx-auto">
                 <p class="mb-6 text-left  text-xl text-gray-200">
-                  {postDetails?.description}
+                  {/* Render Quill editor content */}
+                <ReactQuill
+                  readOnly
+                  theme="bubble"
+                  value={postDetails?.description || ""}
+                  modules={{ toolbar: false }}
+                  className="text-white"
+                />
 
                   {/* Show delete and update  if it was created by the user */}
                   {isCreatedBy ? (
