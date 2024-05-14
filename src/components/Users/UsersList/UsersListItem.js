@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   blockUserAction,
   unBlockUserAction,
+  rewardUserAction,
 } from "../../../redux/slices/users/usersSlices";
 
 const UsersListItem = user => {
@@ -53,10 +54,10 @@ const UsersListItem = user => {
               followers
             </p>
           </div>
-          <div className="w-full flex lg:w-4/12 px-4  mb-6 lg:mb-0">
+          <div className="w-full flex lg:w-4/12 px-4  mb-6 lg:mb-0 h-8">
             <p className="inline-block py-1 px-2 mr-2 mb-1 lg:mb-0 text-xs border-2 rounded">
               <span className="text-base mr-2  boder-2 text-bold text-yellow-500">
-                {user.user?.postCount} - Posts
+                {user.user?.postCount}- Post
               </span>
             </p>
             <Link
@@ -84,7 +85,7 @@ const UsersListItem = user => {
 
             <button
               onClick={sendMailNavigator}
-              className="inline-flex  justify-center bg-green-700 px-2   border border-yellow-700 shadow-sm text-sm font-medium rounded-md text-gray-700  hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+              className="inline-flex mr-2  justify-center bg-green-700 px-2   border border-yellow-700 shadow-sm text-sm font-medium rounded-md text-gray-700  hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
             >
               <MailIcon
                 className="-ml-1 mr-2 h-5 w-5 text-gray-200"
@@ -92,6 +93,17 @@ const UsersListItem = user => {
               />
               <span className="text-base mr-2  text-bold text-yellow-500">
                 Message
+              </span>
+            </button>
+
+            {/* Send Reward*/}
+            <button
+              onClick={() => dispatch(rewardUserAction(user?.user?._id))}
+              className="inline-flex  justify-center bg-ehite-700 px-2   border border-yellow-700 shadow-sm text-sm font-medium rounded-md text-gray-700  hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+            >
+              
+              <span className="text-base mr-2  text-bold text-yellow-500">
+                Reward
               </span>
             </button>
           </div>
