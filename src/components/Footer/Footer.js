@@ -22,13 +22,13 @@ const Footer = () => {
               to="/create-post"
               className="hover:text-gray-300 transition duration-300"
             >
-              Create Post
+              Create Blog
             </Link>
             <Link
               to="/posts"
               className="hover:text-gray-300 transition duration-300"
             >
-              Posts
+              Blogs
             </Link>
             <Link
               to="/register"

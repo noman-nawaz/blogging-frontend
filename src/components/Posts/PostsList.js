@@ -43,10 +43,10 @@ export default function PostsList() {
             <div className="mb-16 flex flex-wrap items-center">
               <div className="w-full lg:w-1/2">
                 <span className="text-green-600 font-bold">
-                  Latest Posts from our awesome authors
+                  Latest Blogs from our awesome authors
                 </span>
                 <h2 className="text-4xl text-gray-300 lg:text-5xl font-bold font-heading">
-                  Latest Post
+                  Latest Blogs
                 </h2>
               </div>
               <div className=" block text-right w-1/2">
@@ -55,7 +55,7 @@ export default function PostsList() {
                   onClick={() => dispatch(fetchPostsAction(''))}
                   className="inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose transition duration-200"
                 >
-                  View All Posts
+                  View All Blogs
                 </button>
               </div>
             </div>
@@ -111,14 +111,21 @@ export default function PostsList() {
                       className="flex flex-wrap bg-gray-900 -mx-3  lg:mb-6"
                     >
                       <div className="mb-10  w-full lg:w-1/4">
-                        <Link>
-                          {/* Post image */}
-                          <img
-                            className="w-full h-full object-cover rounded"
-                            src={post?.image}
-                            alt=""
-                          />
+                      <Link>
+                          <div className="relative">
+                            {/* Render star if post is featured */}
+                            {post?.isFeatured && (
+                              <span className="absolute top-2 left-2 text-yellow-500 text-3xl">⭐️</span>
+                            )}
+                            {/* Post image */}
+                            <img
+                              className="w-full h-full object-cover rounded"
+                              src={post?.image}
+                              alt=""
+                            />
+                          </div>
                         </Link>
+
                         {/* Likes, views dislikes */}
                         <div className="flex flex-row bg-gray-300 justify-center w-full  items-center ">
                           {/* Likes */}
@@ -170,7 +177,6 @@ export default function PostsList() {
                           </h3>
                         </Link>
                         
-                        {/* Read more */}
                         <Link
                           to={`/posts/${post?._id}`}
                           className="text-indigo-500 hover:underline"

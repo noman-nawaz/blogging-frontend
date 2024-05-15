@@ -7,7 +7,7 @@ import { PlusIcon } from "@heroicons/react/solid";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Create", href: "/create-post", current: false },
-  { name: "Posts", href: "/posts", current: false },
+  { name: "Blogs", href: "/posts", current: false },
   { name: "Register", href: "/register", current: false },
   { name: "Login", href: "/login", current: false },
 ];
@@ -84,7 +84,7 @@ const PublicNavbar = () => {
                       className="-ml-1 mr-2 h-5 w-5"
                       aria-hidden="true"
                     />
-                    <span>New Post</span>
+                    <span>New Blog</span>
                   </Link>
                 </div>
               </div>

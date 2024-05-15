@@ -17,7 +17,7 @@ import { logoutAction } from "../../../redux/slices/users/usersSlices";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Create", href: "/create-post", current: false },
-  { name: "Posts", href: "/posts", current: false },
+  { name: "Blogs", href: "/posts", current: false },
   { name: "Authors", href: "/users", current: false },
   { name: "Add Category", href: "/add-category", current: false },
   { name: "Category List", href: "/category-list", current: false },
@@ -101,7 +101,7 @@ const handleLogout = () => {
                       className="-ml-1 mr-2 h-5 w-5"
                       aria-hidden="true"
                     />
-                    <span>New Post</span>
+                    <span>New Blog</span>
                   </Link>
                   {/* Logout */}
                   <button

@@ -23,12 +23,20 @@ export const createpostAction = createAsyncThunk(
     };
     try {
       //http call
+      console.log("isFeatured value in form data:", post?.isFeatured);
+
+
       const formData = new FormData();
       formData.append("title", post?.title);
       formData.append("description", post?.description);
       formData.append("category", post?.category);
       formData.append("image", post?.image);
-
+      formData.append("isFeatured", post?.isFeatured);
+      if(Boolean(post?.isFeatured))
+      {
+      formData.append("transectionHash", post?.transectionHash);
+      }
+      
       const { data } = await axios.post(
         `${baseUrl}/api/posts`,
         formData,
