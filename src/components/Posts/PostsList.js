@@ -102,7 +102,7 @@ export default function PostsList() {
                   </h1>
                 ) : postLists?.length <= 0 ? (
                   <h1 className="text-yellow-400 text-lg text-center">
-                    No Post Found
+                    No Blog Found
                   </h1>
                 ) : (
                   postLists?.map(post => (

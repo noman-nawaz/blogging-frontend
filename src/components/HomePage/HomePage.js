@@ -15,10 +15,10 @@ const HomePage = () => {
               </span>
               <h2 className="max-w-2xl mt-12 mb-12 text-6xl 2xl:text-8xl text-white font-bold font-heading">
                 Pen down your ideas{" "}
-                <span className="text-yellow-500">By creating a post</span>
+                <span className="text-yellow-500">By creating a blog</span>
               </h2>
               <p className="mb-12 lg:mb-16 2xl:mb-24 text-xl text-gray-100">
-                Your post must be free from racism and unhealthy words
+                Your blog must be free from racism and unhealthy words
               </p>
               <a
                 className="inline-block px-12 py-5 text-lg text-white font-bold bg-blue-500 hover:bg-blue-600 rounded-full transition duration-200"
