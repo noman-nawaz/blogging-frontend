@@ -101,9 +101,11 @@ export const rewardUserAction = createAsyncThunk(
       },
     };
     //http call
+    console.log(id);
     try {
-      const { data } = await axios.get(
+      const { data } = await axios.put(
         `${baseUrl}/api/users/likes/${id}`,
+        {},
         config
       );
       return data;
